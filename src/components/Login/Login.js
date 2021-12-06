@@ -10,6 +10,7 @@ export default function Login() {
 
   const { client_id, redirect_uri } = state;
   //Change something to reflect in github  if it is working.
+  //another change
   useEffect(() => {
     // After requesting Github access, Github redirects back to your app with a code parameter
     const url = window.location.href;
