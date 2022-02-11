@@ -1,0 +1,11 @@
+.container-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-row-gap: 0px;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid black;
+}
+
+.day-tile {
+}

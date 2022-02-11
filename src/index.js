@@ -2,5 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import ContextWrapper from "./context/ContextWrapper";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <ContextWrapper>
+    <App />
+  </ContextWrapper>,
+  document.getElementById("root")
+);

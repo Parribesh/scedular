@@ -5,6 +5,8 @@ export const initialState = {
   redirect_uri: process.env.REACT_APP_REDIRECT_URI,
   client_secret: process.env.REACT_APP_CLIENT_SECRET,
   proxy_url: process.env.REACT_APP_PROXY_URL,
+  fetchApi_url: process.env.REACT_APP_API_URL,
+  weatherApi_url: process.env.REACT_APP_WEATHERAPI_URL,
 };
 
 export const reducer = (state, action) => {

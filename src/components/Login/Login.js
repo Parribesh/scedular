@@ -31,6 +31,9 @@ export default function Login() {
       // Use code parameter and other parameters to make POST request to proxy_server
       fetch(proxy_url, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(requestData),
       })
         .then((response) => response.json())
@@ -41,7 +44,6 @@ export default function Login() {
           });
         })
         .catch((error) => {
-          console.log(error);
           setData({
             isLoading: false,
             errorMessage: "Sorry! Login failed",
