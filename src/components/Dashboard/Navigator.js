@@ -66,7 +66,7 @@ const Wrapper = Styled.section`
       flex-direction: row;
       justify-content: space-between;
       padding: 8px 10px; 
-      height: 50px;
+      height: 7vh;
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
       width: auto;
       .avatar{

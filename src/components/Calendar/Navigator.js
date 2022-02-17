@@ -23,17 +23,18 @@ export default function CalenderNavigator() {
       <div className="header">
         <h1>Calendar</h1>
         <button className="today" onClick={handleToday}>
-          today
+          <strong> Today</strong>
         </button>
         <h2>
           {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
         </h2>
         <div className="navigator-button">
           <button className="prev" onClick={handlePrevMonth}>
-            Prev
+            <strong>{`-`}</strong>
           </button>
+          Month
           <button className="next" onClick={handleNextMonth}>
-            Next
+            <strong>{`+`}</strong>
           </button>
         </div>
       </div>
@@ -44,13 +45,36 @@ export default function CalenderNavigator() {
 const Wrapper = styled.section`
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    color: #585c59;
     .prev {
-      border-radius: 25px;
+      border-radius: 50px;
+      background-color: #a0e2f2;
+      font-size: 20px;
     }
     .next {
-      border-radius: 25px;
+      border-radius: 50px;
+      background-color: #a0e2f2;
+      font-size: 20px;
     }
+  }
+  button {
+    outline: none;
+    border: none;
+    background-color: #a0e2f2;
+    border-radius: 20px;
+  }
+  .navigator-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    font-size: 20px;
+  }
+  button: hover {
+    background-color: #b8d1f5;
+  }
+  .next: hover, .prev: hover {
+    background-color: #b8d1f5;
   }
 `;

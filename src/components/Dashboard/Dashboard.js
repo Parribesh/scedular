@@ -3,11 +3,12 @@ import { Redirect } from "react-router-dom";
 import Styled from "styled-components";
 import { AuthContext } from "../../App";
 import Navigator from "./Navigator";
-import Calender from "../Preferences/Calender";
+import Calender from "../Calendar/Calender";
 import Sidebar from "./Sidebar";
+import Menubar from "../Main/Menubar";
 
 export default function Home() {
-  const { state, dispatch } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
 
   if (!state.isLoggedIn) {
     return <Redirect to="/login" />;
@@ -22,8 +23,13 @@ export default function Home() {
         <div className="sidebar">
           <Sidebar />
         </div>
-        <div className="calendar-section">
-          <Calender />
+        <div className="main-view">
+          <div className="menu-bar">
+            <Menubar />
+          </div>
+          <div className="calendar-section">
+            <Calender />
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -31,6 +37,14 @@ export default function Home() {
 }
 
 const Wrapper = Styled.section`
+ * {
+    box-sizing: border-box;
+  }
+
+  .sidebar{
+   max-width: 500px;
+  }
+
 .main-container{
   display: flex;
 }
@@ -41,9 +55,15 @@ const Wrapper = Styled.section`
 .calendar-section{
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  flex-wrap: wrap;
+  border: 3px solid #d9f0c5;
+  border-radius: 10px;
+  margin: 20px;
+  padding-bottom: 10px;
+  background-color: #edf4f7;
+  width: 620px;
 }
-.sidebar{
-  
+.main-view{
+   width: 100%;
 }
 `;

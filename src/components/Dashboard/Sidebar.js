@@ -6,10 +6,10 @@ import Weather from "../Sidebar/Weather";
 export default function Sidebar() {
   const { state } = useContext(AuthContext);
   const [news, setNews] = useState([]);
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData] = useState(null);
   const location = Weather();
   const fetchApi = state.fetchApi_url;
-  const fetchWeather = state.weatherApi_url;
+  // const fetchWeather = state.weatherApi_url;
 
   useEffect(() => {
     fetch(fetchApi)
@@ -58,13 +58,13 @@ export default function Sidebar() {
             </div>
           </div>
         </div>
-        <div>
-          <h2>News Today</h2>
-        </div>
         <div className="news-container">
+          <div>
+            <h2>News Today</h2>
+          </div>
           {news.map((item, key) => {
             return (
-              <div>
+              <div key={key}>
                 <h4>{item.title}</h4>
                 <br></br>
               </div>
@@ -84,16 +84,19 @@ const Wrapper = styledComponents.section`
       flex-grow: 1;
       margin: 0px;
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-      width: 15rem;
-      height: 93vh;
-      
+      height: 93vh; 
+      width: 20rem;   
     }
     .news-container{
       overflow-y:auto;
+      margin: 10px;
       
     }
     .data-container{
       display: flex;
       flex-direction: column;
+    }
+    .weather-container{
+      margin: 10px;
     }
 `;
